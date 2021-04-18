@@ -9,12 +9,12 @@ a{
 }
 header{
     width: 100%;
-    height: 7vh;
+    height: 6vh;
     background-color: #3A3E3B;
     display: flex;
     color: #fff;
     justify-content: space-around;
-    font-size: 24px;
+    font-size: 16px;
     justify-self: center;
     text-align: center;
 }
@@ -22,6 +22,7 @@ header{
     width: 150px;
     justify-self: center;
     text-align: center;
+    /* border:2px red solid; */
 }
 .btn-head *{
     margin-left: auto;
@@ -32,7 +33,8 @@ header div{
     /* padding-left: 10vh; */
 }
 header div:hover{
-    border: white 0.5px solid;
+    border: rgba(233, 233, 233, 0.425) 0.5px solid;
+    transform: scale(1.1);
     /* background-color: blue; */
 }
 img{

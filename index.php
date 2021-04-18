@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <div class="btn-head bd-btn">
-            <a href="#">Main menu</a>
-        </div>
-        <div class="btn-head">
-            <a href="#">About</a>
-        </div>
-        <div class="btn-head">
-            <a href="#">Support</a>
-        </div>
-    </header>
+<?php
+    require_once 'header.php';
+?>
     <section>
         <div class="flex">
             <div class="article-block">
-                <a href="#">
+                <a href="/vidopage.php">
                     <img src="assets/img/placeholder.jpg" alt="">
                     <div class="text-art-box">
                         <p><span>Name</span></p>
@@ -31,7 +14,7 @@
             </div>
 
             <div class="article-block">
-                <a href="#">
+                <a href="/vidopage.php">
                     <img src="assets/img/placeholder.jpg" alt="">
                     <div class="text-art-box">
                         <p><span>Name</span></p>
@@ -41,7 +24,7 @@
             </div>
 
             <div class="article-block">
-                <a href="#">
+                <a href="/vidopage.php">
                     <img src="assets/img/placeholder.jpg" alt="">
                     <div class="text-art-box">
                         <p><span>Name</span></p>
@@ -51,7 +34,7 @@
             </div>
 
             <div class="article-block">
-                <a href="#">
+                <a href="/vidopage.php">
                     <img src="assets/img/placeholder.jpg" alt="">
                     <div class="text-art-box">
                         <p><span>Name</span></p>
@@ -61,7 +44,7 @@
             </div>
 
             <div class="article-block">
-                <a href="#">
+                <a href="/vidopage.php">
                     <img src="assets/img/placeholder.jpg" alt="">
                     <div class="text-art-box">
                         <p><span>Name</span></p>
@@ -71,7 +54,7 @@
             </div>
 
             <div class="article-block">
-                <a href="#">
+                <a href="/vidopage.php">
                     <img src="assets/img/placeholder.jpg" alt="">
                     <div class="text-art-box">
                         <p><span>Name</span></p>
@@ -119,31 +102,6 @@
         
     </section>
 
-    <footer>
-        
-        <div class="left-block">
-            <div class="logo">
-                <p>WebmLand</p>
-            </div>
-            <div class="logo-desc">
-                <p>Развлекательный портал</p>
-            </div>
-        </div>
-
-        <div class="right-block">
-            <p>Ссылки</p>
-            <div class="links">
-                <a href="#">
-                    <img src="assets/img/icon/vk.svg" alt="vk">
-                </a>
-                <a href="#">
-                    <img src="assets/img/icon/inst.svg" alt="">
-                </a>
-                <a href="#">
-                    <img src="assets/img/icon/git.svg" alt="github">
-                </a>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+<?php 
+    require_once 'footer.php';
+?>
