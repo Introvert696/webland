@@ -1,3 +1,12 @@
+<?php 
+    require_once 'db.php';
+    $stmt = $pdo->query("select * from videos");
+    $videos = $stmt -> fetchAll();
+
+    // print_r($videos);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +18,12 @@
 <body>
     <header>
         <div class="btn-head bd-btn">
-            <a href="/">Main menu</a>
+            <a href="/">Главная</a>
         </div>
         <div class="btn-head">
-            <a href="/about.php">About</a>
+            <a href="/about.php">О мне</a>
         </div>
         <div class="btn-head">
-            <a href="#">Support</a>
+            <a href="/support.php">Поддержка</a>
         </div>
     </header>

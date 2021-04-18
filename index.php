@@ -3,65 +3,18 @@
 ?>
     <section>
         <div class="flex">
+            <?php foreach ($videos as $video): ?>
             <div class="article-block">
                 <a href="/vidopage.php">
-                    <img src="assets/img/placeholder.jpg" alt="">
+                    <img src="<?=$video['prewiev_path'] ?>" alt="">
                     <div class="text-art-box">
-                        <p><span>Name</span></p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, veritatis nisi illo maxime minima voluptas, repellat quo libero eius sequi </p>
+                        <p><span><?=$video['name'] ?></span></p>
+                        <p><?=$video['description'] ?></p>
                     </div>
                 </a>
             </div>
-
-            <div class="article-block">
-                <a href="/vidopage.php">
-                    <img src="assets/img/placeholder.jpg" alt="">
-                    <div class="text-art-box">
-                        <p><span>Name</span></p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, veritatis nisi illo maxime minima voluptas, repellat quo libero eius sequi </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="article-block">
-                <a href="/vidopage.php">
-                    <img src="assets/img/placeholder.jpg" alt="">
-                    <div class="text-art-box">
-                        <p><span>Name</span></p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, veritatis nisi illo maxime minima voluptas, repellat quo libero eius sequi </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="article-block">
-                <a href="/vidopage.php">
-                    <img src="assets/img/placeholder.jpg" alt="">
-                    <div class="text-art-box">
-                        <p><span>Name</span></p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, veritatis nisi illo maxime minima voluptas, repellat quo libero eius sequi </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="article-block">
-                <a href="/vidopage.php">
-                    <img src="assets/img/placeholder.jpg" alt="">
-                    <div class="text-art-box">
-                        <p><span>Name</span></p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, veritatis nisi illo maxime minima voluptas, repellat quo libero eius sequi </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="article-block">
-                <a href="/vidopage.php">
-                    <img src="assets/img/placeholder.jpg" alt="">
-                    <div class="text-art-box">
-                        <p><span>Name</span></p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, veritatis nisi illo maxime minima voluptas, repellat quo libero eius sequi </p>
-                    </div>
-                </a>
-            </div>
+            <?php endforeach; ?>
+            
     </section>
     <section class="sect-bg">
         <div class="center">

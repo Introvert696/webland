@@ -10,6 +10,8 @@
             <br>
             <br>
             <p>Vk - <a href="https://vk.com/vhs_malchik" target="_blank" style="color: #000;">https://vk.com/vhs_malchik</a></p>
+            <br>           
+            <p>Vk Группа - <a href="https://vk.com/vhs_malchik_gr" target="_blank" style="color: #000;">https://vk.com/vhs_malchik_gr</a></p>
             <br>
             <p>Github - <a href="https://github.com/Introvert696" target="_blank" style="color: #000;">https://github.com/Introvert696</a></p>
             <br>
