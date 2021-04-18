@@ -1,19 +1,24 @@
 <?php
 require_once 'header.php';
+
+$id = $_GET['id'];
+$name = $_GET['name'];
+$url_path = $_GET['url_path'];
+$create_at = $_GET['create_at'];
 ?>
 <!-- НАЧАЛО ДЛЯ ШАБЛОНА  -->
 
 <section>
     <div class="bg-block">
         <div class="text-player">
-            <p><span>Name</span></p>
+            <p><span><?=$name?></span></p>
         </div>
         <div class="player">
-            <video src="https://2ch.hk/b/src/244641993/16186528346800.mp4" controls></video>
+            <video src="<?=$url_path?>" controls></video>
         </div>
         <div class="text-player-desc">
             <p><span>Описание: </span></p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium repudiandae veniam quisquam culpa dolore? Animi veniam inventore cum debitis, repellendus, omnis neque porro deleniti veritatis ad modi saepe? Corporis, suscipit?</p>
+            <p><?=$create_at?></p>
         </div>
     </div>
 </section>

@@ -5,7 +5,7 @@
         <div class="flex">
             <?php foreach ($videos as $video): ?>
             <div class="article-block">
-                <a href="/vidopage.php">
+                <a href="/vidopage.php?id=<?=$video['id'] ?>&name=<?=$video['name']?>&url_path=<?=$video['url_path']?>&create_at=<?=$video['create_at']?>">
                     <img src="<?=$video['prewiev_path'] ?>" alt="">
                     <div class="text-art-box">
                         <p><span><?=$video['name'] ?></span></p>
