@@ -9,24 +9,6 @@ foreach ($users as $item => $valuee) {
   $logNorm = $valuee['login'];
   $pasNorm = $valuee['password'];
 }
-print_r($_GET);
-
-
-/**
- * 
- *  <?php foreach ($videos as $video): ?>
- *           <div class="article-block">
- *               <a href="/vidopage.php?id=<?=$video['id'] ?>&name=<?=$video['name']?>&url_path=<?=$video['url_path']?>&create_at=<?=$video['create_at']?>">
- *                  <img src="<?=$video['prewiev_path'] ?>" alt="">
- *                  <div class="text-art-box">
- *                      <p><span><?=$video['name'] ?></span></p>
- *                      <p><?=$video['description'] ?></p>
- *                 </div>
- *             </a>
- *          </div>
- *          <?php endforeach; ?>
- */
-
 
 
 
@@ -55,21 +37,123 @@ function login($db, $loginch, $passwordch, $videos)
                </div>
   </div>
   </div>";
-  if(isset($_GET['meth'])) {
-    delete($_GET['idvidos']);
-    // $update = mysqli_query($videos,"UPDATE videos SET title='$_POST[title]', description='$_POST[description]', text='$_POST[text]' WHERE id='$id'");
-    echo 'Типо удалил';
 
+
+  if (isset($_GET['meth'])) {
+    // print_r($_GET);
+    // $update = mysqli_query($videos,"UPDATE videos SET title='$_POST[title]', description='$_POST[description]', text='$_POST[text]' WHERE id='$id'");
+
+    if ($_GET['meth'] == 'delit' && (isset($_SESSION['IsAdmin'])) && ($_SESSION['IsAdmin'] == '1')) {
+      $echo = 'Удаление видосп';
+      $id = $_GET['idvidos'];
+
+      $db = mysqli_connect('localhost', 'root', 'root', 'webmland')
+        or die('Error connecting to MySQL server.');
+      $query = "DELETE FROM videos WHERE id = '$id'";
+
+      mysqli_query($db, $query) or die("Ошибка " . mysqli_error($videos));
+      // print_r('Удаление видоса');
+      $_SESSION['IsAdmin'] = '0';
+    } elseif ($_GET['meth'] == 'redak' && (isset($_SESSION['IsAdmin'])) && ($_SESSION['IsAdmin'] == '1')) {
+      $echo = "<form action='?lesson=ku&meth=redak&idvidos={$_GET['idvidos']}' method='post' >
+      <h3>Название видео</h3>
+      <input type='text' name='redakName'>
+      <h3>Ссылка на превью</h3>
+      <input type='text ' name='redakPrewievPath'>
+      <h3>Ссылка на видео</h3>
+      <input type='text' name='redakVideoPath'>
+      <h3>Описание видео</h3>
+      <textarea name='redakVideoDesk' id='redakVideoDesk' cols='30' rows='10'></textarea>
+      <input type='submit' value='Редактировать' class='button'>
+      </form>";
+      // echo $echo;
+
+      $redakName = '0';
+      $redakDescription = '0';
+      $redakPrewievPath = '0';
+      $redakVideoPath = '0';
+      $redakVideoDesk = '0';
+
+
+
+
+      //  print_r($redakName.$redakPrewievPath.$redakVideoPath.$redakVideoDesk);
+
+      if (isset($redakName) && isset($redakPrewievPath) && isset($redakVideoDesk) && isset($redakVideoPath)) {
+        // echo $_GET['lesson'];
+        if (isset($_GET['lesson']) && ($_GET['lesson'] == 'ku')) {
+          $redakName = $_POST['redakName'];
+          $redakPrewievPath = $_POST['redakPrewievPath'];
+          $redakVideoPath = $_POST['redakVideoPath'];
+          $redakVideoDesk = $_POST['redakVideoDesk'];
+          // print_r($redakName . $redakPrewievPath . $redakVideoPath . $redakVideoDesk);
+          $id = $_GET['idvidos'];
+          $echo = 'Статья с id = ' . $id;
+
+          $db = mysqli_connect('localhost', 'root', 'root', 'webmland')
+            or die('Error connecting to MySQL server.');
+
+          $query = "UPDATE videos SET name='$redakName', description='$redakVideoDesk',prewiev_path='$redakPrewievPath',url_path='$redakVideoPath' WHERE id='$id'";
+
+          mysqli_query($db, $query) or die("Ошибка " . mysqli_error($videos));
+        }
+      }
+    } elseif ($_GET['meth'] == 'addArt' && (isset($_SESSION['IsAdmin'])) && ($_SESSION['IsAdmin'] == '1')) {
+      $echo = "<form action='?meth=addArt&lesson=add' method='post' >
+      <h3>Название видео</h3>
+      <input type='text' name='addName'>
+      <h3>Ссылка на превью</h3>
+      <input type='text ' name='addPreview'>
+      <h3>Ссылка на видео</h3>  
+      <input type='text' name='addVideoLink'>
+      <h3>Описание видео</h3>
+      <textarea name='addDesc' id='addDesc' cols='30' rows='10'></textarea>
+      <input type='submit' value='Добавить' class='button'>
+  </form>";
+
+      $addName = '0';
+      $addDesc = '0';
+      $addPreview = '0';
+      $addVideoLink = '0';
+
+      
+
+      if (isset($_GET['lesson']) && ($_GET['lesson'] == 'add')) {
+        
+
+
+        $db = mysqli_connect('localhost', 'root', 'root', 'webmland')
+          or die('Error connecting to MySQL server.');
+
+        //экспонирование для sql
+
+        $addName =$_POST['addName'];
+        $addDesc =$_POST['addDesc'];
+        $addPreview =$_POST['addPreview'];
+        $addVideoLink =$_POST['addVideoLink'];
+
+
+
+
+        $query = "INSERT INTO videos (name, description, prewiev_path, url_path) VALUES ('$addName', '$addDesc', '$addPreview','$addVideoLink')";
+        mysqli_query($db, $query);
+
+        $echo = 'Запись ' .$addName .' добавлена <br> <a href="index.php"> Главная страница</a>';
+      }
+    } else {
+      echo '<h1>ВЫ НЕ АДМИН</h1>';
+    }
   }
-  if ((isset($_POST['login']) && $_POST['password']) || (isset($gee))){
-    $gee = 1;
+
+  if ((isset($_POST['login']) && $_POST['password']) || (isset($gee))) {
+    $_SESSION['IsAdmin'] = '1';
     $login = $_POST['login'];
     $password = $_POST['password'];
     $_SESSION['LoginIn'] = 'true';
 
     if (($login == $loginch) && ($password == $passwordch)) { //успешный вход
       $_SESSION["AdminLogin"] = true;
-     
+
 
       echo "<div class='oneLeft'>
       <div class='sagolovok'>
@@ -82,12 +166,13 @@ function login($db, $loginch, $passwordch, $videos)
       foreach ($videos as $video) {
         echo '<tr>';
         echo "<td>";
-        $nameVid = '<h3>' . $video['name'] . '________Дата создания: ' . $video['create_at'] . "</h3>________<a href='index.php?idvidos={$video['id']}&meth=dlit'>Удалить</a>";
+        $nameVid = '<h3>' . $video['name'] . '________Дата создания: ' . $video['create_at'] . "</h3>________<a href='index.php?idvidos={$video['id']}&meth=delit'>Удалить</a>__________<a href='index.php?idvidos={$video['id']}&meth=redak'>Редактироавние</a>";
         echo $nameVid;
         echo "</td>";
         echo '</tr>';
       }
-      echo '</table>
+      echo '<a href="index.php?meth=addArt">Добавить статьб</a>
+      </table>
               </div>
 
           </div>
