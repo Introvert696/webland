@@ -14,7 +14,7 @@ $create_at = $_GET['create_at'];
             <p><span><?=$name?></span></p>
         </div>
         <div class="player">
-            <video src="<?=$url_path?>" controls></video>
+            <video src="<?=$url_path?>" controls autoplay></video>
         </div>
         <div class="text-player-desc">
             <p><span>Описание: </span></p>
