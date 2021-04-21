@@ -148,7 +148,7 @@ function login($db, $loginch, $passwordch, $videos)
       <h3>Название видео</h3>
       <input type='text' name='addName'>
       <h3>Ссылка на превью</h3>
-      <input type='text ' name='addPreview'>
+      <input type='text ' name='addPreview' value='https://blog.gelin.ru/2017/01/web.jpg'>
       <h3>Ссылка на видео</h3>  
       <input type='text' name='addVideoLink'>
       <h3>Описание видео</h3>
