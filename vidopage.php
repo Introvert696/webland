@@ -1,10 +1,14 @@
 <?php
+
+$titlepage = 'Видеоплеер';
 require_once 'header.php';
 
 $id = $_GET['id'];
 $name = $_GET['name'];
 $url_path = $_GET['url_path'];
 $create_at = $_GET['create_at'];
+
+$titlepage = 'Видео';
 ?>
 <!-- НАЧАЛО ДЛЯ ШАБЛОНА  -->
 

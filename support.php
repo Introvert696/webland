@@ -1,4 +1,5 @@
 <?php 
+$titlepage = 'Поддержка';
     require_once 'header.php';
 ?>
 

@@ -4,7 +4,7 @@
     $videos = $stmt -> fetchAll();
 
     // print_r($videos);
-
+    
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <title>Главная</title>
+    <title><?=$titlepage?></title>
 </head>
 <body>
     <header>

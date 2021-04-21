@@ -1,4 +1,5 @@
 <?php 
+$titlepage = 'О мне';
     require_once 'header.php';
 ?>
 <!--  -->

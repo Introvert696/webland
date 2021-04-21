@@ -1,5 +1,7 @@
 <?php
+$titlepage = 'Главная страница';
     require_once 'header.php';
+    
 ?>
     <section>
         <div class="flex">
